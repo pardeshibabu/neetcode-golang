@@ -7,11 +7,11 @@ import (
 
 func main() {
 	fmt.Println("Hello world")
-	// var slice = []int{2, 1, 2, 1, 0, 1, 2}
+	var slice = []int{1, 3, -1, -3, 5, 3, 6, 7}
 	// fmt.Println(scripts.LongestConsecutive(slice))
-	s1 := "cabwefgewcwaefgcf"
-	s2 := "cae"
-	fmt.Println(scripts.MinWindow(s1, s2))
+	// s1 := "aabb"
+	// s2 := "ab"
+	fmt.Println(scripts.MaxSlidingWindow(slice, 3))
 	return
 }
 
