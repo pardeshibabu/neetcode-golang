@@ -7,23 +7,26 @@ import (
 
 func main() {
 	fmt.Println("Hello world")
-	var slice = []int{73, 74, 75, 71, 69, 72, 76, 73}
+	var slice = []int{2, 1, 5, 6, 2, 3}
 	// fmt.Println(scripts.LongestConsecutive(slice))
 	// s1 := "()[]{}"
 	// s2 := "ab"
 	// var arrS = []string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}
-	fmt.Println(stackneetcode.DailyTemperatures(slice))
+	fmt.Println(stackneetcode.LargestRectangleArea(slice))
 	return
 }
 
-// permutation_in_tring due
-// Hello world
-// 0 8 89 100
-// 1 2 62 70
-// 2 7 70 76
-// 3 7 58 76
-// 4 7 47 76
-// 5 7 47 76
-// 6 7 46 76
-// 7 8 76 100
-// panic: runtime error: index out of range [10] with length 10
+// permutation_in_string due
+// 0 [] -1
+// 1 [0] 0
+// 2 [1] 0
+// [1] 0
+// 3 [1 2] 1
+// [1 2] 1
+// 4 [1 2 3] 2
+// 5 [1 2 4] 2
+// [1 2 4] 2
+// [1 2 4 5]
+// stack
+// [1 0 0 4 0 0]
+// [1 0 0 4 0 0]
