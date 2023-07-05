@@ -15,3 +15,5 @@ func main() {
 	fmt.Println(bst.Search(slice, 9))
 	return
 }
+
+// permutation_in_string due
