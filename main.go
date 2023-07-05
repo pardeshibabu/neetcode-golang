@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	stackneetcode "neetcode/stack_neetcode"
+	"neetcode/bst"
 )
 
 func main() {
 	fmt.Println("Hello world")
-	var slice = []int{2, 1, 5, 6, 2, 3}
+	var slice = []int{-1, 0, 3, 5, 9, 12}
 	// fmt.Println(scripts.LongestConsecutive(slice))
 	// s1 := "()[]{}"
 	// s2 := "ab"
 	// var arrS = []string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}
-	fmt.Println(stackneetcode.LargestRectangleArea(slice))
+	fmt.Println(bst.Search(slice, 9))
 	return
 }
