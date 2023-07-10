@@ -1,7 +1,5 @@
 package bst
 
-import "fmt"
-
 type TimeStamp struct {
 	Value          string
 	TimeStampValue int
@@ -31,24 +29,20 @@ func (this *TimeMap) Set(key string, value string, timestamp int) {
 }
 
 func (this *TimeMap) Get(key string, timestamp int) string {
-	fmt.Println(this.HashMap[key][len(this.HashMap[key])-1].TimeStampValue)
-	if len(this.HashMap[key]) > 0 && this.HashMap[key][len(this.HashMap[key])-1].TimeStampValue <= timestamp {
-		fmt.Println("here")
+	if len(this.HashMap[key]) == 0 {
+		return ""
+	}
+	if this.HashMap[key][len(this.HashMap[key])-1].TimeStampValue <= timestamp {
 		return this.HashMap[key][len(this.HashMap[key])-1].Value
 	}
-	res := searchValue(this.HashMap[key], timestamp)
-	if timestamp >= this.HashMap[key][0].TimeStampValue && res != "" {
-		return res
-	}
-	return ""
+	return searchValue(this.HashMap[key], timestamp)
 }
 
 func searchValue(mat []TimeStamp, target int) string {
-	fmt.Println(mat)
 	lm, rm := 0, len(mat)-1
 	for lm <= rm {
 		mid_m := (rm + lm) / 2
-		fmt.Println(mid_m)
+		// fmt.Println(mid_m)
 		if mat[mid_m].TimeStampValue == target {
 			return mat[mid_m].Value
 		} else if mat[mid_m].TimeStampValue > target {
@@ -56,6 +50,9 @@ func searchValue(mat []TimeStamp, target int) string {
 		} else {
 			lm = mid_m + 1
 		}
+	}
+	if lm-1 < 0 {
+		return ""
 	}
 	return mat[lm-1].Value
 }
