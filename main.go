@@ -26,36 +26,47 @@ func main() {
 	// // fmt.Println("f:::", obj.Get("foo", 4))
 	// fmt.Println(obj.Get("foo", 9))
 
-	obj1 := linkedlist.ListNode{
-		Val:  1,
-		Next: nil,
+	obj1 := linkedlist.Node{
+		Val:    1,
+		Next:   nil,
+		Random: nil,
 	}
-	obj2 := linkedlist.ListNode{
-		Val:  2,
-		Next: nil,
+	obj2 := linkedlist.Node{
+		Val:    2,
+		Next:   nil,
+		Random: nil,
 	}
-	obj3 := linkedlist.ListNode{
-		Val:  3,
-		Next: nil,
+	obj3 := linkedlist.Node{
+		Val:    3,
+		Next:   nil,
+		Random: nil,
 	}
-	obj4 := linkedlist.ListNode{
-		Val:  4,
-		Next: nil,
+	obj4 := linkedlist.Node{
+		Val:    4,
+		Next:   nil,
+		Random: nil,
 	}
-	obj5 := linkedlist.ListNode{
-		Val:  5,
-		Next: nil,
+	obj5 := linkedlist.Node{
+		Val:    5,
+		Next:   nil,
+		Random: nil,
 	}
 	obj1.Next = &obj2
 	obj2.Next = &obj3
 	obj3.Next = &obj4
 	obj4.Next = &obj5
-	linkedlist.ReorderList(&obj1)
+
+	obj1.Random = nil
+	obj2.Random = &obj1
+	obj3.Random = &obj5
+	obj4.Random = &obj3
+	obj5.Random = &obj1
 	t := &obj1
 	for t != nil {
 		fmt.Print(t.Val, "-->")
 		t = t.Next
 	}
+	fmt.Println()
 	return
 }
 
