@@ -1,8 +1,9 @@
 package main
 
 import (
+	"container/heap"
 	"fmt"
-	linkedlist "neetcode/linked_list"
+	heappriorityqueue "neetcode/heap-priority-queue"
 )
 
 func main() {
@@ -26,47 +27,60 @@ func main() {
 	// // fmt.Println("f:::", obj.Get("foo", 4))
 	// fmt.Println(obj.Get("foo", 9))
 
-	obj1 := linkedlist.Node{
-		Val:    1,
-		Next:   nil,
-		Random: nil,
-	}
-	obj2 := linkedlist.Node{
-		Val:    2,
-		Next:   nil,
-		Random: nil,
-	}
-	obj3 := linkedlist.Node{
-		Val:    3,
-		Next:   nil,
-		Random: nil,
-	}
-	obj4 := linkedlist.Node{
-		Val:    4,
-		Next:   nil,
-		Random: nil,
-	}
-	obj5 := linkedlist.Node{
-		Val:    5,
-		Next:   nil,
-		Random: nil,
-	}
-	obj1.Next = &obj2
-	obj2.Next = &obj3
-	obj3.Next = &obj4
-	obj4.Next = &obj5
+	// obj1 := linkedlist.Node{
+	// 	Val:    1,
+	// 	Next:   nil,
+	// 	Random: nil,
+	// }
+	// obj2 := linkedlist.Node{
+	// 	Val:    2,
+	// 	Next:   nil,
+	// 	Random: nil,
+	// }
+	// obj3 := linkedlist.Node{
+	// 	Val:    3,
+	// 	Next:   nil,
+	// 	Random: nil,
+	// }
+	// obj4 := linkedlist.Node{
+	// 	Val:    4,
+	// 	Next:   nil,
+	// 	Random: nil,
+	// }
+	// obj5 := linkedlist.Node{
+	// 	Val:    5,
+	// 	Next:   nil,
+	// 	Random: nil,
+	// }
+	// obj1.Next = &obj2
+	// obj2.Next = &obj3
+	// obj3.Next = &obj4
+	// obj4.Next = &obj5
 
-	obj1.Random = nil
-	obj2.Random = &obj1
-	obj3.Random = &obj5
-	obj4.Random = &obj3
-	obj5.Random = &obj1
-	t := &obj1
-	for t != nil {
-		fmt.Print(t.Val, "-->")
-		t = t.Next
+	// obj1.Random = nil
+	// obj2.Random = &obj1
+	// obj3.Random = &obj5
+	// obj4.Random = &obj3
+	// obj5.Random = &obj1
+	// t := &obj1
+	// for t != nil {
+	// 	fmt.Print(t.Val, "-->")
+	// 	t = t.Next
+	// }
+	// fmt.Println()
+
+	// an array is not heapify yet
+	arrayForInit := []int{9, 31, 40, 22, 10, 15, 1, 25, 91}
+
+	minHeap := &heappriorityqueue.MinHeap{}
+	*minHeap = arrayForInit
+	heap.Init(minHeap)
+	k := 3
+	for len(*minHeap) > k {
+		minHeap.Pop()
 	}
-	fmt.Println()
+	fmt.Println("hepified array::", minHeap)
+	fmt.Println("Kth largest::", minHeap)
 	return
 }
 
