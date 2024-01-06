@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello world")
+	fmt.Println("Hello world testing commit")
 	// var slice = []int{13, 14, 15, -1, 0, 3, 5, 9, 12}
 	// // fmt.Println(scripts.LongestConsecutive(slice))
 	// // s1 := "()[]{}"
